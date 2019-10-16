@@ -3,7 +3,7 @@
     <string name="title_home">Home</string>
     <string name="title_calculator">Bmi Kalkulator</string>
     <string name="title_mifflin">Mifflin</string>
-    <string name="welcome_text">Siemanderko</string>
+    <string name="welcome_text">Witaj w kalkulatorze BMI/Mifflina</string>
     <string name="weight_desc">Podaj masę (KG): </string>
     <string name="height_desc">Podja wzrost (M): </string>
     <string name="bmi">BMI: </string>
@@ -12,8 +12,9 @@
     <string name="female">Kobieta</string>
     <string name="age_desc">Podaj wiek (w latach): </string>
     <string name="ppm">PPM: </string>
-    <string name="compartment_1">Nadwaga</string>
-    <string name="compartment_2">Wartość prawidłowa</string>
-    <string name="compartment_3">Niedowaga</string>
+    <string name="compartment_v_over_weight">Otyłość</string>
+    <string name="compartment_over_weight">Nadwaga</string>
+    <string name="compartment_normal_weight">Wartość prawidłowa</string>
+    <string name="compartment_under_weight">Niedowaga</string>
     <string name="fill_alld_data">Uzupałnij wszystkie dane</string>
 </resources>

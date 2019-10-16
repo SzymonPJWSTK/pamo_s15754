@@ -15,7 +15,12 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import java.util.HashMap;
+import java.util.Map;
+
+
 public class MainActivity extends AppCompatActivity {
+    public enum COMPARTMENT {UNDER_WEIGHT,OVER_WEIGHT,V_OVER_WEIGHT,NORMAL_WEIGHT}
 
     private int _age;
     private double _weight = 0.0;
@@ -31,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
     private ConstraintLayout _mifflinScreen;
 
     private ImageView _mealImageView;
+
+    private Map<COMPARTMENT, String> _compartmentStrings;
+    private Map<COMPARTMENT, Integer> _compartmentImage;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -64,6 +72,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        _compartmentStrings = new HashMap<COMPARTMENT,String>();
+        _compartmentStrings.put(COMPARTMENT.NORMAL_WEIGHT, getResources().getString(R.string.compartment_normal_weight));
+        _compartmentStrings.put(COMPARTMENT.UNDER_WEIGHT, getResources().getString(R.string.compartment_under_weight));
+        _compartmentStrings.put(COMPARTMENT.OVER_WEIGHT, getResources().getString(R.string.compartment_over_weight));
+        _compartmentStrings.put(COMPARTMENT.V_OVER_WEIGHT,getResources().getString(R.string.compartment_v_over_weight));
+
+        _compartmentImage = new HashMap<COMPARTMENT,Integer>();
+        _compartmentImage.put(COMPARTMENT.NORMAL_WEIGHT, R.drawable.schabowy);
+        _compartmentImage.put(COMPARTMENT.UNDER_WEIGHT, R.drawable.duzy);
+        _compartmentImage.put(COMPARTMENT.OVER_WEIGHT, R.drawable.zdrowe);
+        _compartmentImage.put(COMPARTMENT.V_OVER_WEIGHT,R.drawable.salatka);
+
         _isFemale = false;
         _homeScreen = (ConstraintLayout) findViewById(R.id.welcomeScreen);
         _calculatorScreen = (ConstraintLayout) findViewById(R.id.bmiCalculatorScreen);
@@ -71,6 +91,8 @@ public class MainActivity extends AppCompatActivity {
         _bmiOut = (TextView) findViewById(R.id.bmiOutputTextView);
         _compartmentOut = (TextView) findViewById(R.id.compartmenOutTextView);
         _ppmOut = (TextView) findViewById(R.id.mifflinOutTextView);
+        _mealImageView = (ImageView) findViewById(R.id.mealImageView);
+
 
         EditText weightEdit = (EditText) findViewById(R.id.weightEditText);
         EditText heightEdit = (EditText) findViewById(R.id.heightEditText);
@@ -108,12 +130,16 @@ public class MainActivity extends AppCompatActivity {
         {
             _bmiOut.setText(getResources().getString(R.string.bmi) + " "  + getResources().getString(R.string.fill_alld_data));
             _compartmentOut.setText(getResources().getString(R.string.compartment) + " "  + getResources().getString(R.string.fill_alld_data));
+            _mealImageView.setVisibility(View.INVISIBLE);
             return;
         }
 
         double bmi = Math.round((_weight/Math.pow(_height,2)) * 100.0)/100.0;
         _bmiOut.setText(getResources().getString(R.string.bmi) + " " + bmi);
-        _compartmentOut.setText(getResources().getString(R.string.compartment) + " " + getCompartment(bmi));
+        COMPARTMENT compartment = getCompartment(bmi);
+        _compartmentOut.setText(getResources().getString(R.string.compartment) + " " + _compartmentStrings.get(compartment));
+        _mealImageView.setImageDrawable(getResources().getDrawable(_compartmentImage.get(compartment)));
+        _mealImageView.setVisibility(View.VISIBLE);
     }
 
     private final TextWatcher ageEditTextWatcher = new TextWatcher() {
@@ -176,14 +202,15 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    private String getCompartment(double bmi){
-        if(bmi >= 25.0){
-            return getResources().getString(R.string.compartment_1);
+    private COMPARTMENT getCompartment(double bmi){
+        if(bmi >= 30.0) {
+            return COMPARTMENT.V_OVER_WEIGHT;
+        }else if(bmi < 30.0 && bmi >= 25.0){
+            return COMPARTMENT.OVER_WEIGHT;
         }else if(bmi < 25.0 && bmi >= 18.5){
-            return getResources().getString(R.string.compartment_2);
+            return COMPARTMENT.NORMAL_WEIGHT;
         }else{
-            return getResources().getString(R.string.compartment_3);
+            return COMPARTMENT.UNDER_WEIGHT;
         }
     }
-
 }
