@@ -1,5 +1,6 @@
 package com.pjatk.bmi_2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.BottomNavigationView;
@@ -9,6 +10,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -20,6 +22,7 @@ import java.util.Map;
 
 
 public class MainActivity extends AppCompatActivity {
+
     public enum COMPARTMENT {UNDER_WEIGHT,OVER_WEIGHT,V_OVER_WEIGHT,NORMAL_WEIGHT}
 
     private int _age;
@@ -98,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
         EditText heightEdit = (EditText) findViewById(R.id.heightEditText);
         EditText ageEdit = (EditText) findViewById(R.id.ageEditText);
         Switch sexSwitch = (Switch) findViewById(R.id.sexSwitch);
+        Button startQuizBtn = (Button) findViewById(R.id.startQuizBtn);
 
         weightEdit.addTextChangedListener(weightEditTextWatcher);
         heightEdit.addTextChangedListener(heightEditTextWatcher);
@@ -108,6 +112,8 @@ public class MainActivity extends AppCompatActivity {
                 CalculateMifflin();
             }
         });
+
+        startQuizBtn.setOnClickListener(startQuizListener);
 
         _homeScreen.setVisibility(View.VISIBLE);
         BottomNavigationView navView = findViewById(R.id.nav_view);
@@ -141,6 +147,14 @@ public class MainActivity extends AppCompatActivity {
         _mealImageView.setImageDrawable(getResources().getDrawable(_compartmentImage.get(compartment)));
         _mealImageView.setVisibility(View.VISIBLE);
     }
+
+    private View.OnClickListener startQuizListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent quizActivity = new Intent(getApplicationContext(),QuizActivity.class);
+            startActivity(quizActivity);
+        }
+    };
 
     private final TextWatcher ageEditTextWatcher = new TextWatcher() {
         @Override

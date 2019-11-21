@@ -1,0 +1,130 @@
+{
+  "questions" : [
+    {
+      "question": "Najzdrowsze pieczywo to...?",
+      "answers": [
+        {
+          "text" : "Mieszane",
+          "isCorrect" : false
+        },
+        {
+          "text" : "Białe",
+          "isCorrect" : false
+        },
+        {
+          "text" : "Żadne pieczywo. Tylko płatki",
+          "isCorrect" : false
+        },
+        {
+          "text" : "Pełnoziarniste",
+          "isCorrect" : true
+        }
+      ]
+    },
+    {
+      "question": "Ile posiłków dziennie powinno się jeść?",
+      "answers": [
+        {
+          "text" : "2-3",
+          "isCorrect" : false
+        },
+        {
+          "text" : "Im więcej tym lepiej",
+          "isCorrect" : false
+        },
+        {
+          "text" : "7",
+          "isCorrect" : false
+        },
+        {
+          "text" : "4-5",
+          "isCorrect" : true
+        }
+      ]
+    },
+    {
+      "question": "Ile wody powinno się dziennie wypijać?",
+      "answers": [
+        {
+          "text" : "2L",
+          "isCorrect" : false
+        },
+        {
+          "text" : "3L",
+          "isCorrect" : false
+        },
+        {
+          "text" : "0,5L",
+          "isCorrect" : false
+        },
+        {
+          "text" : "1,5L",
+          "isCorrect" : true
+        }
+      ]
+    },
+    {
+      "question": "Co ile godzin powinniśmy jeść posiłki?",
+      "answers": [
+        {
+          "text" : "1",
+          "isCorrect" : false
+        },
+        {
+          "text" : "6",
+          "isCorrect" : false
+        },
+        {
+          "text" : "2-3",
+          "isCorrect" : false
+        },
+        {
+          "text" : "3-4",
+          "isCorrect" : true
+        }
+      ]
+    },
+    {
+      "question": "Ile godzin snu potrzeba?",
+      "answers": [
+        {
+          "text" : "Nie potrzeba",
+          "isCorrect" : false
+        },
+        {
+          "text" : "1-2",
+          "isCorrect" : false
+        },
+        {
+          "text" : "12",
+          "isCorrect" : false
+        },
+        {
+          "text" : "7-9",
+          "isCorrect" : true
+        }
+      ]
+    },
+    {
+      "question": "Najważniejszy posiłek dnia to?",
+      "answers": [
+        {
+          "text" : "Obiad",
+          "isCorrect" : false
+        },
+        {
+          "text" : "Jedzenie jest dla słabych",
+          "isCorrect" : false
+        },
+        {
+          "text" : "Podwieczorek",
+          "isCorrect" : false
+        },
+        {
+          "text" : "Śniadanie",
+          "isCorrect" : true
+        }
+      ]
+    }
+  ]
+}

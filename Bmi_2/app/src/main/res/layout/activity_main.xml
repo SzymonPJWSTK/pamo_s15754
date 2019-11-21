@@ -12,7 +12,8 @@
         android:id="@+id/welcomeScreen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="invisible">
+        android:visibility="invisible"
+        tools:visibility="visible">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,6 +28,13 @@
                 android:gravity="center"
                 android:text="@string/welcome_text"
                 android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/startQuizBtn"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_margin="15dp"
+                android:text="@string/start_quiz" />
         </LinearLayout>
     </android.support.constraint.ConstraintLayout>
 

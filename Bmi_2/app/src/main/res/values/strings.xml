@@ -17,4 +17,14 @@
     <string name="compartment_normal_weight">Wartość prawidłowa</string>
     <string name="compartment_under_weight">Niedowaga</string>
     <string name="fill_alld_data">Uzupałnij wszystkie dane</string>
+    <string name="start_quiz">Zacznij quiz</string>
+    <string name="title_activity_question">Question</string>
+    <string name="questionTItle_begining">Pytanie numer: </string>
+    <string name="questionTItle_from"> z </string>
+    <string name="quizEnd">Podsumowanie</string>
+    <string name="correctAnswers">Odpowiedzi poprawnych:</string>
+    <string name="wrongAnswers">Odpowiedzi negatywnych:</string>
+    <string name="sum">Uzyskany wynik:</string>
+    <string name="returnToMain">Powróć do głównego ekrany</string>
+    <string name="showChart">Zobacz postęp na wykresie</string>
 </resources>
